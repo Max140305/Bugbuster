@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Dashboard · BugBuster Pro</title>
+<!-- AUTH GATE: redirect before render so protected UI never flashes -->
+<script>if(!localStorage.getItem("bb_admin_auth")){location.replace("login.html");}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/admin.css">
+</head>
+<body class="admin">
+
+<div class="admin-shell">
+  <aside class="sidebar">
+    <a class="brand" href="../index.html"><span class="mark">🐞</span>BugBuster<b>Pro</b></a>
+    <nav id="sideNav"></nav>
+    <div class="sb-foot">
+      <a href="../index.html">← Customer site</a><br>
+      <a href="#" id="resetBtn" style="display:inline-block;margin-top:6px">↺ Reset demo data</a>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <h1>Dispatch console</h1>
+      <span class="pill" id="syncPill">localStorage mode</span>
+      <button class="iconbtn" id="logoutBtn">Sign out</button>
+    </div>
+    <div id="view"></div>
+  </main>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database-compat.js"></script>
+<script src="../js/firebase-sync.js"></script>
+<script src="../js/data.js"></script>
+<script src="../js/storage.js"></script>
+<script src="../js/validation.js"></script>
+<script src="../js/admin.js"></script>
+<script src="../js/i18n.js"></script>
+<script>
+  // reflect sync status in the topbar pill
+  window.addEventListener("load", function () {
+    setTimeout(function () {
+      if (window.Sync && window.Sync.enabled) {
+        var p = document.getElementById("syncPill");
+        p.textContent = "● live sync"; p.style.color = "var(--lime)";
+      }
+    }, 800);
+  });
+</script>
+</body>
+</html>

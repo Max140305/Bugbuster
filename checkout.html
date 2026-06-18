@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Checkout · BugBuster Pro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="checkout">
+
+<header class="nav"><div class="wrap">
+  <a class="brand" href="index.html"><span class="mark">🐞</span>BugBuster<b>Pro</b></a>
+  <button class="menu-toggle" aria-label="Menu">☰</button>
+  <nav>
+    <a href="services.html">Services</a>
+    <a href="track.html">Track</a>
+    <a href="feedback.html">Feedback</a>
+    <a class="cta" href="book.html">Book now</a>
+  </nav>
+</div></header>
+
+<section class="wrap">
+  <div class="stepwrap">
+    <span class="step done">1 · Details</span>
+    <span class="step on">2 · Payment</span>
+    <span class="step">3 · Track</span>
+  </div>
+
+  <div id="checkout">
+    <div class="section-head"><div><span class="eyebrow">Checkout</span><h2>Confirm &amp; pay</h2></div></div>
+    <div class="two-col">
+      <div class="card">
+        <h3 style="margin-bottom:8px">Payment <span class="badge" style="background:var(--mist);color:var(--muted)">SIMULATED</span></h3>
+        <p class="hint" style="margin-bottom:16px">No real payment is processed. The card number is checked with the Luhn self-checking formula only — a demonstration of a check-digit control.</p>
+        <form id="payForm" novalidate>
+          <div class="form-row"><label class="lab">Cardholder name <span class="req">*</span></label>
+            <input type="text" name="cardName" placeholder="Name on card"></div>
+          <div class="form-row mt16"><label class="lab">Card number <span class="req">*</span></label>
+            <input type="text" name="cardNumber" placeholder="4242 4242 4242 4242" inputmode="numeric" autocomplete="off">
+            <span class="hint">Use a Luhn-valid test number, e.g. 4242 4242 4242 4242</span></div>
+          <button class="btn btn-block mt24" type="submit">Pay &amp; confirm booking</button>
+          <p class="note center mt8"><a href="book.html">← Back to details</a></p>
+        </form>
+      </div>
+      <div class="summary">
+        <div class="card">
+          <h3 style="margin-bottom:12px">Order summary</h3>
+          <div id="coSummary"></div>
+          <div class="mt16" id="coMeta"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer"><div class="wrap">
+  <div><a class="brand" href="index.html"><span class="mark">🐞</span>BugBuster<b>Pro</b></a>
+    <p class="note">Service Management Module · demo prototype for coursework.</p></div>
+  <div class="muted"><a href="admin/login.html" class="note">Staff login →</a></div>
+</div></footer>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database-compat.js"></script>
+<script src="js/firebase-sync.js"></script>
+<script src="js/data.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/validation.js"></script>
+<script src="js/main.js"></script>
+<script src="js/i18n.js"></script>
+</body>
+</html>

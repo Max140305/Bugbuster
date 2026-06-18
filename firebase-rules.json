@@ -1,0 +1,14 @@
+{
+  "_comment": "BugBuster Pro — Realtime Database rules. PROTOTYPE posture: the app has no Firebase Auth, so cross-device sync relies on open access to the store/ subtree. Writes are restricted to the bb_ key whitelist (no arbitrary paths) and values are shape-checked. PRODUCTION: enable Firebase Authentication and replace the rules below with per-actor rules (e.g. only signed-in staff may write bb_bookings status; customers may write only their own booking). Publish via Firebase console → Realtime Database → Rules.",
+  "rules": {
+    ".read": false,
+    ".write": false,
+    "store": {
+      "$key": {
+        ".read": true,
+        ".write": "$key.matches(/^bb_[a-z_]+$/)",
+        ".validate": "newData.exists()"
+      }
+    }
+  }
+}

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Book a service · BugBuster Pro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="book">
+
+<header class="nav"><div class="wrap">
+  <a class="brand" href="index.html"><span class="mark">🐞</span>BugBuster<b>Pro</b></a>
+  <button class="menu-toggle" aria-label="Menu">☰</button>
+  <nav>
+    <a href="services.html">Services</a>
+    <a href="track.html">Track</a>
+    <a href="feedback.html">Feedback</a>
+    <a class="cta" href="book.html">Book now</a>
+  </nav>
+</div></header>
+
+<section class="wrap">
+  <div class="stepwrap">
+    <span class="step on">1 · Details</span>
+    <span class="step">2 · Payment</span>
+    <span class="step">3 · Track</span>
+  </div>
+  <div class="section-head"><div><span class="eyebrow">New booking</span><h2>Book a service</h2></div></div>
+
+  <form id="bookForm" novalidate>
+  <div class="two-col">
+    <div class="stack-sm">
+
+      <div class="card">
+        <h3 style="margin-bottom:12px">Services</h3>
+        <div data-field="services" data-error="services"></div>
+        <div id="svcPicker"></div>
+        <select id="addSvc" class="mt8" aria-label="Add a service"></select>
+      </div>
+
+      <div class="card">
+        <h3 style="margin-bottom:14px">Your details</h3>
+        <div class="form-grid">
+          <div class="form-row full"><label class="lab">Full name <span class="req">*</span></label>
+            <input type="text" name="cust_name" placeholder="e.g. Sari Wulandari"></div>
+          <div class="form-row"><label class="lab">Email <span class="req">*</span></label>
+            <input type="email" name="cust_email" placeholder="you@email.com"></div>
+          <div class="form-row"><label class="lab">Phone <span class="req">*</span></label>
+            <input type="tel" name="cust_phone" placeholder="0812xxxxxxxx" inputmode="numeric"></div>
+          <div class="form-row full"><label class="lab">Service address <span class="req">*</span></label>
+            <input type="text" name="address" placeholder="Street, number, neighbourhood"></div>
+          <div class="form-row full"><label class="lab">Region <span class="req">*</span></label>
+            <select name="region">
+              <option value="">Select a region…</option>
+              <option value="Yogyakarta">Yogyakarta</option>
+              <option value="Sleman">Sleman</option>
+              <option value="Bantul">Bantul</option>
+              <option value="Kulon Progo">Kulon Progo</option>
+              <option value="Gunungkidul">Gunungkidul</option>
+            </select></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3 style="margin-bottom:14px">Property &amp; pest</h3>
+        <div class="form-row">
+          <label class="lab">Property type <span class="req">*</span></label>
+          <div class="choice-grid" data-field="propertyType" data-error="propertyType">
+            <label class="choice"><input type="radio" name="propertyType" value="house"><span class="box">🏠 House</span></label>
+            <label class="choice"><input type="radio" name="propertyType" value="apartment"><span class="box">🏢 Apartment</span></label>
+            <label class="choice"><input type="radio" name="propertyType" value="office"><span class="box">🏬 Office</span></label>
+            <label class="choice"><input type="radio" name="propertyType" value="warehouse"><span class="box">🏭 Warehouse</span></label>
+          </div>
+        </div>
+        <div class="form-grid mt16">
+          <div class="form-row"><label class="lab">Area size (m²) <span class="req">*</span></label>
+            <input type="number" name="areaSize" min="1" step="1" placeholder="e.g. 90"></div>
+          <div class="form-row"><label class="lab">Pest severity <span class="req">*</span></label>
+            <select name="severity">
+              <option value="">Select…</option>
+              <option value="low">Low — a few sightings</option>
+              <option value="medium">Medium — recurring activity</option>
+              <option value="high">High — heavy infestation</option>
+            </select></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3 style="margin-bottom:14px">Schedule &amp; options</h3>
+        <div class="form-grid">
+          <div class="form-row"><label class="lab">Preferred date <span class="req">*</span></label>
+            <input type="date" name="preferredDate"></div>
+          <div class="form-row"><label class="lab">Time slot <span class="req">*</span></label>
+            <select name="timeSlot">
+              <option value="">Select…</option>
+              <option value="08:00-10:00">08:00 – 10:00</option>
+              <option value="10:00-12:00">10:00 – 12:00</option>
+              <option value="13:00-15:00">13:00 – 15:00</option>
+              <option value="15:00-17:00">15:00 – 17:00</option>
+            </select></div>
+          <div class="form-row full"><label class="lab">Frequency <span class="req">*</span></label>
+            <select name="frequency">
+              <option value="one-time">One-time</option>
+              <option value="monthly">Recurring — monthly</option>
+              <option value="quarterly">Recurring — quarterly</option>
+            </select></div>
+        </div>
+        <label class="switch mt16"><input type="checkbox" name="ecoFriendly">
+          <span><strong>Eco-friendly chemicals</strong><br><small class="muted">Low-toxicity, pet &amp; child safe (+10%)</small></span></label>
+      </div>
+
+    </div>
+
+    <div class="summary">
+      <div class="card">
+        <h3 style="margin-bottom:6px">Summary</h3>
+        <p class="hint" style="margin-bottom:12px">Review before payment</p>
+        <div class="line"><span>Subtotal</span><span id="sumSub" class="mono">Rp 0</span></div>
+        <div class="line"><span>Eco surcharge</span><span id="sumEco" class="mono">—</span></div>
+        <div class="total-line"><strong>Total</strong><span class="price" id="sumTotal">Rp 0</span></div>
+        <button class="btn btn-block mt16" type="submit">Continue to payment →</button>
+        <p class="note center mt8">No charge yet · payment is simulated</p>
+      </div>
+    </div>
+  </div>
+  </form>
+</section>
+
+<footer class="footer"><div class="wrap">
+  <div><a class="brand" href="index.html"><span class="mark">🐞</span>BugBuster<b>Pro</b></a>
+    <p class="note">Service Management Module · demo prototype for coursework.</p></div>
+  <div class="muted"><a href="admin/login.html" class="note">Staff login →</a></div>
+</div></footer>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database-compat.js"></script>
+<script src="js/firebase-sync.js"></script>
+<script src="js/data.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/validation.js"></script>
+<script src="js/main.js"></script>
+<script src="js/i18n.js"></script>
+</body>
+</html>

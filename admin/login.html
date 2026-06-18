@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Staff login · BugBuster Pro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/admin.css">
+</head>
+<body class="admin">
+
+<div class="login-wrap">
+  <div class="login-card">
+    <a class="brand" href="../index.html" style="font-size:20px"><span class="mark">🐞</span>BugBuster<b>Pro</b></a>
+    <h2 style="margin:18px 0 4px">Staff console</h2>
+    <p class="hint" style="margin-bottom:18px">Coordinators &amp; managers only.</p>
+    <form id="loginForm" novalidate>
+      <div class="form-row"><label class="lab">Username</label>
+        <input type="text" name="user" placeholder="admin" autocomplete="username"></div>
+      <div class="form-row mt16"><label class="lab">Password</label>
+        <input type="password" name="pass" placeholder="••••••••" autocomplete="current-password"></div>
+      <div class="inline-err" id="loginErr" style="display:none"></div>
+      <button class="btn btn-block mt24" type="submit">Sign in</button>
+    </form>
+    <div class="demo-note"><strong>Demo-grade auth.</strong> This prototype gates the console with a localStorage flag, not a real identity system. Use <code>admin</code> / <code>bugbuster</code>.</div>
+  </div>
+</div>
+
+<script>
+  // Already signed in? skip straight to the dashboard.
+  if (localStorage.getItem("bb_admin_auth")) location.replace("index.html");
+  document.getElementById("loginForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var u = this.user.value.trim(), p = this.pass.value;
+    var err = document.getElementById("loginErr");
+    if (u === "admin" && p === "bugbuster") {
+      localStorage.setItem("bb_admin_auth", JSON.stringify({ user: u, at: new Date().toISOString() }));
+      location.replace("index.html");
+    } else {
+      err.textContent = "Invalid credentials. Try admin / bugbuster.";
+      err.style.display = "block";
+    }
+  });
+</script>
+<script src="../js/i18n.js"></script>
+</body>
+</html>

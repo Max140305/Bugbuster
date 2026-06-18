@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Feedback · BugBuster Pro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="feedback">
+
+<header class="nav"><div class="wrap">
+  <a class="brand" href="index.html"><span class="mark">🐞</span>BugBuster<b>Pro</b></a>
+  <button class="menu-toggle" aria-label="Menu">☰</button>
+  <nav>
+    <a href="services.html">Services</a>
+    <a href="track.html">Track</a>
+    <a href="feedback.html">Feedback</a>
+    <a class="cta" href="book.html">Book now</a>
+  </nav>
+</div></header>
+
+<section class="wrap">
+  <div class="section-head"><div><span class="eyebrow">Feedback</span><h2>What customers say</h2>
+    <p class="muted">Every review here is tied to a completed service — no cherry-picking.</p></div></div>
+
+  <div class="two-col">
+    <div class="grid g-2" id="fbList"></div>
+    <div class="summary">
+      <div class="card center">
+        <div class="price" style="font-size:52px;line-height:1" id="fbAvg">0.0</div>
+        <div id="fbStars" class="mt8"></div>
+        <p class="hint mt8">based on <span id="fbCount">0</span> reviews</p>
+        <div class="stack-sm mt16" id="fbDist" style="text-align:left"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer"><div class="wrap">
+  <div><a class="brand" href="index.html"><span class="mark">🐞</span>BugBuster<b>Pro</b></a>
+    <p class="note">Service Management Module · demo prototype for coursework.</p></div>
+  <div class="muted"><a href="admin/login.html" class="note">Staff login →</a></div>
+</div></footer>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database-compat.js"></script>
+<script src="js/firebase-sync.js"></script>
+<script src="js/data.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/validation.js"></script>
+<script src="js/main.js"></script>
+<script src="js/i18n.js"></script>
+</body>
+</html>

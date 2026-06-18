@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BugBuster Pro · Pest control, booked and tracked</title>
+<meta name="description" content="Book licensed pest-control technicians, track the job from request to done, and get a full service report.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="home">
+
+<header class="nav"><div class="wrap">
+  <a class="brand" href="index.html"><span class="mark">🐞</span>BugBuster<b>Pro</b></a>
+  <button class="menu-toggle" aria-label="Menu">☰</button>
+  <nav>
+    <a href="services.html">Services</a>
+    <a href="track.html">Track</a>
+    <a href="feedback.html">Feedback</a>
+    <a class="cta" href="book.html">Book now</a>
+  </nav>
+</div></header>
+
+<section class="hero"><div class="wrap">
+  <span class="eyebrow">Pest control · Yogyakarta &amp; around</span>
+  <h1>Pests handled.<br><span class="hl">Same week.</span></h1>
+  <p class="lead">Book a licensed technician, follow the job from request to done, and get a written service report — all from your phone.</p>
+  <div class="hero-actions">
+    <a class="btn btn-amber" href="book.html">Book a service</a>
+    <a class="btn btn-ghost" href="track.html" style="color:#eaf1ec;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.25)">Track my booking</a>
+  </div>
+  <div class="hero-strip">
+    <div><b>7</b>service types</div>
+    <div><b>5</b>field technicians</div>
+    <div><b>5</b>regions covered</div>
+  </div>
+  <div class="hero-card" aria-hidden="true">
+    <div class="spread"><span class="tag">BK-2026-0001-1</span><span class="badge st-in-progress">IN PROGRESS</span></div>
+    <div class="row"><span>General Pest Control</span><span class="mono">Rp 350.000</span></div>
+    <div class="row"><span>Technician</span><span>Budi S. · TC-02</span></div>
+    <div class="row"><span>Today</span><span class="mono">08:00–10:00</span></div>
+  </div>
+</div></section>
+
+<section class="wrap">
+  <div class="section-head">
+    <div><span class="eyebrow">Services</span><h2>What we treat</h2></div>
+    <a class="btn-ghost btn btn-sm" href="services.html">View all services →</a>
+  </div>
+  <div class="grid g-3" id="featured"></div>
+</section>
+
+<section style="background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="section-head"><div><span class="eyebrow">How it works</span><h2>Request to resolved</h2></div></div>
+    <div class="grid g-3">
+      <div class="card"><span class="tag">STEP 01</span><h3 class="mt16">Book online</h3><p class="muted mt8">Pick your service, property details, and a time slot. Confirm with a simulated payment.</p></div>
+      <div class="card"><span class="tag">STEP 02</span><h3 class="mt16">We assign a technician</h3><p class="muted mt8">A coordinator confirms your booking and assigns a licensed technician to your slot.</p></div>
+      <div class="card"><span class="tag">STEP 03</span><h3 class="mt16">Track &amp; get your report</h3><p class="muted mt8">Watch the status update live, then read the full service report and leave feedback.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap center">
+  <h2>Got a pest problem?</h2>
+  <p class="muted mt8">Get a licensed technician out this week.</p>
+  <a class="btn btn-amber mt16" href="book.html">Book a service</a>
+</section>
+
+<footer class="footer"><div class="wrap">
+  <div><a class="brand" href="index.html"><span class="mark">🐞</span>BugBuster<b>Pro</b></a>
+    <p class="note">Service Management Module · demo prototype for coursework.</p></div>
+  <div class="muted">Yogyakarta · Sleman · Bantul · Kulon Progo · Gunungkidul<br>
+    <a href="admin/login.html" class="note">Staff login →</a></div>
+</div></footer>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database-compat.js"></script>
+<script src="js/firebase-sync.js"></script>
+<script src="js/data.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/validation.js"></script>
+<script src="js/main.js"></script>
+<script src="js/i18n.js"></script>
+</body>
+</html>

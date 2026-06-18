@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Track your service · BugBuster Pro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="track">
+
+<header class="nav"><div class="wrap">
+  <a class="brand" href="index.html"><span class="mark">🐞</span>BugBuster<b>Pro</b></a>
+  <button class="menu-toggle" aria-label="Menu">☰</button>
+  <nav>
+    <a href="services.html">Services</a>
+    <a href="track.html">Track</a>
+    <a href="feedback.html">Feedback</a>
+    <a class="cta" href="book.html">Book now</a>
+  </nav>
+</div></header>
+
+<section class="wrap">
+  <div class="section-head"><div><span class="eyebrow">Tracking</span><h2>Track your service</h2>
+    <p class="muted">Enter your booking ID to see live status, your assigned technician, and the service report.</p></div></div>
+
+  <form id="trackForm" class="card" style="max-width:540px" novalidate>
+    <div class="form-row">
+      <label class="lab" for="lookupInput">Booking ID</label>
+      <div class="flex" style="flex-wrap:nowrap;gap:10px">
+        <input type="text" id="lookupInput" name="lookup" placeholder="BK-2026-0001-7" style="text-transform:uppercase">
+        <button class="btn" type="submit">Track</button>
+      </div>
+      <div data-error="lookup"></div>
+      <p class="hint mt8">Tip: try a seeded demo booking — open the dashboard to copy an ID, or book one yourself.</p>
+    </div>
+  </form>
+
+  <div id="trackResult" class="mt24"></div>
+</section>
+
+<footer class="footer"><div class="wrap">
+  <div><a class="brand" href="index.html"><span class="mark">🐞</span>BugBuster<b>Pro</b></a>
+    <p class="note">Service Management Module · demo prototype for coursework.</p></div>
+  <div class="muted"><a href="admin/login.html" class="note">Staff login →</a></div>
+</div></footer>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database-compat.js"></script>
+<script src="js/firebase-sync.js"></script>
+<script src="js/data.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/validation.js"></script>
+<script src="js/main.js"></script>
+<script src="js/i18n.js"></script>
+</body>
+</html>
