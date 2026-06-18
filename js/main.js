@@ -116,7 +116,7 @@ function pageBook() {
         '<div class="qty"><button type="button" data-dec="' + s.id + '">−</button>' +
         '<span class="mono" style="min-width:20px;text-align:center">' + row.qty + '</span>' +
         '<button type="button" data-inc="' + s.id + '">+</button>' +
-        '<button type="button" class="btn-ghost btn-sm" data-rm="' + s.id + '" style="margin-left:8px">Remove</button></div></div>';
+        '<button type="button" class="btn-ghost btn-sm" data-rm="' + s.id + '" style="margin-left:8px; padding: 6px 10px; font-size: 16px;" title="Hapus layanan">🗑️</button></div></div>';
     }).join("");
     $$("[data-inc]", picker).forEach((b) => b.onclick = () => { const id = b.dataset.inc; Cart.setQty(id, (Cart.get().find((x) => x.id === id).qty) + 1); renderPicker(); });
     $$("[data-dec]", picker).forEach((b) => b.onclick = () => { const id = b.dataset.dec; Cart.setQty(id, (Cart.get().find((x) => x.id === id).qty) - 1); renderPicker(); });
@@ -135,6 +135,7 @@ function pageBook() {
       services: Cart.get()
     };
   }
+
   function updateTotal() {
     const p = readForm();
     const subtotal = Cart.get().reduce((s, r) => { const svc = Storage.getService(r.id); return s + (svc ? svc.basePrice : 0) * r.qty; }, 0);
@@ -144,7 +145,24 @@ function pageBook() {
     $("#sumTotal").textContent = money(subtotal + eco);
   }
 
-  form.addEventListener("input", updateTotal);
+  // --- FITUR DRAFT: Isi ulang form dari data yang tersimpan ---
+  const draft = Storage._get("bb_draft", null);
+  if (draft) {
+    Object.keys(draft).forEach(k => {
+      const el = form.elements[k];
+      if (el && k !== "services") {
+        if (el.type === "checkbox") el.checked = draft[k];
+        else el.value = draft[k];
+      }
+    });
+  }
+
+  // --- FITUR DRAFT: Simpan setiap kali user ngetik ---
+  form.addEventListener("input", () => {
+    Storage._set("bb_draft", readForm());
+    updateTotal();
+  });
+
   $("[name=ecoFriendly]").addEventListener("change", updateTotal);
 
   form.addEventListener("submit", (e) => {
@@ -153,7 +171,20 @@ function pageBook() {
     const res = Validate.booking(p);
     Validate.clearErrors(form);
     if (!res.valid) { Validate.showErrors(form, res.errors); toast("Please fix the highlighted fields.", "err"); return; }
-    Storage._set("bb_pending", p);     // hand off to checkout
+    
+    // --- FIX ERROR CHECKOUT: Format ulang data biar cocok dengan storage.js ---
+    const checkoutPayload = {
+      customer: { name: p.cust_name, email: p.cust_email, phone: p.cust_phone, address: p.address, region: p.region },
+      propertyType: p.propertyType, areaSize: p.areaSize, severity: p.severity,
+      address: p.address, region: p.region,
+      preferredDate: p.preferredDate, timeSlot: p.timeSlot,
+      frequency: p.frequency, ecoFriendly: p.ecoFriendly,
+      services: p.services
+    };
+    
+    Storage._set("bb_pending", checkoutPayload);
+    // Hapus draft karena pesanan udah mau dibayar
+    localStorage.removeItem("bb_draft"); 
     location.href = "checkout.html";
   });
 
