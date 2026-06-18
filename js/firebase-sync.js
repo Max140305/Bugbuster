@@ -11,13 +11,13 @@
 /* 1) PASTE YOUR FIREBASE CONFIG HERE to enable cross-device sync.
       Leave the values blank to run in localStorage-only mode. */
 const FIREBASE_CONFIG = {
-  apiKey: "",
-  authDomain: "",
-  databaseURL: "",        // e.g. https://bugbuster-xxxx-default-rtdb.firebaseio.com
-  projectId: "",
-  storageBucket: "",
-  messagingSenderId: "",
-  appId: ""
+  apiKey: "AIzaSyA3rDamiKJrubkLN--ce8yw18B6BDzlBXI",
+  authDomain: "bugbuster-3a7bd.firebaseapp.com",
+  databaseURL: "https://bugbuster-3a7bd-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "bugbuster-3a7bd",
+  storageBucket: "bugbuster-3a7bd.firebasestorage.app",
+  messagingSenderId: "1004242517621",
+  appId: "1:1004242517621:web:620fbc770f5659cd6dc23c"
 };
 
 /* 2) The keys mirrored to Firebase (all use the bb_ prefix). */
