@@ -116,7 +116,7 @@ function pageBook() {
         '<div class="qty"><button type="button" data-dec="' + s.id + '">−</button>' +
         '<span class="mono" style="min-width:20px;text-align:center">' + row.qty + '</span>' +
         '<button type="button" data-inc="' + s.id + '">+</button>' +
-        '<button type="button" class="btn-ghost btn-sm" data-rm="' + s.id + '" style="margin-left:8px; padding: 6px 10px; font-size: 16px;" title="Hapus layanan">🗑️</button></div></div>';
+        '<button type="button" class="btn-ghost btn-sm" data-rm="' + s.id + '" style="margin-left:8px; width:34px; height:34px; padding:0; display:inline-flex; align-items:center; justify-content:center; font-size:18px;" title="Hapus layanan">🗑️</button></div></div>';
     }).join("");
     $$("[data-inc]", picker).forEach((b) => b.onclick = () => { const id = b.dataset.inc; Cart.setQty(id, (Cart.get().find((x) => x.id === id).qty) + 1); renderPicker(); });
     $$("[data-dec]", picker).forEach((b) => b.onclick = () => { const id = b.dataset.dec; Cart.setQty(id, (Cart.get().find((x) => x.id === id).qty) - 1); renderPicker(); });
