@@ -135,3 +135,16 @@ body.admin{
   .tbl{font-size:13px}
   .tbl th{position:static}
 }
+
+/* =========================================
+   FIX WARNA FONT ADMIN (TEKS DI DALAM KOTAK)
+   ========================================= */
+.card, .tablecard, .checks label {
+  color: var(--ink) !important;
+}
+.empty {
+  color: var(--muted) !important;
+}
+.tbl {
+  color: var(--ink);
+}
